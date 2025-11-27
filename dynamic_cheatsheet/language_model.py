@@ -46,8 +46,9 @@ class LanguageModel:
             "together_ai/Qwen/Qwen2-72B-Instruct",
             "together_ai/Qwen/Qwen2.5-7B-Instruct-Turbo",
             "together_ai/Qwen/Qwen2.5-72B-Instruct-Turbo",
-            "gemini/gemini-2.0-flash",
             "ollama/llama3:70b",
+            "gemini/gemini-2.0-flash",
+            "gemini/gemini-pro",
         ]:
             self.client = partial(completion, model=self.model_name)
         else:
@@ -103,6 +104,11 @@ class LanguageModel:
             temperature=temperature,
             max_completion_tokens=max_tokens,
         ).choices[0].message["content"]
+        
+        # Handle Empty Outputs
+        if output is None:
+            print(f"\n[Warning] API call to {self.model_name} returned 'None'.")
+            output = ""
 
         # If Python code execution is allowed, execute the code
         pre_code_execution_flag = output.split(code_execution_flag)[0].strip()
