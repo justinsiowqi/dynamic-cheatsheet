@@ -109,11 +109,11 @@ The following command demonstrates how to benchmark Dynamic Cheatsheet with Retr
 
 ```bash
 python run_benchmark.py --task "GameOf24" --approach "DynamicCheatsheet_RetrievalSynthesis" \
-    --model_name "openai/gpt-4o-2024-11-20" \
-    --additional_flag_for_save_path "DynamicCheatsheet_RetrievalSynthesis" \
+    --model_name "gemini/gemini-2.0-flash" \
+    --additional_flag_for_save_path "DynamicCheatsheet_Cumulative" \
     --save_directory "TEST_RESULTS" \
     --generator_prompt_path "prompts/generator_prompt.txt" \
-    --cheatsheet_prompt_path "prompts/curator_prompt_for_dc_retrieval_synthesis.txt" \
+    --cheatsheet_prompt_path "prompts/curator_prompt_for_dc_cumulative.txt" \
     --max_n_samples 10
 ```
 
