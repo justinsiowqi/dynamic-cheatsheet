@@ -38,7 +38,16 @@ Unlike fine-tuning or static retrieval methods, DC adapts LMs' problem-solving s
 
 Getting started with Dynamic Cheatsheet is straightforward. The framework allows you to enhance language models with persistent memory capabilities across inference sessions.
 
+### Installation
+1. Rename example-config.env to config.env and add credentials
+2. Install requirements
+```bash
+pip install -r requirements.txt
+```
+3. Add other model credentials and requirements
+
 ### Basic Usage
+Run the ExampleUsage.ipynb and test the model
 
 ```python
 from dynamic_cheatsheet.language_model import LanguageModel
@@ -111,7 +120,7 @@ python run_benchmark.py --task "GameOf24" --approach "DynamicCheatsheet_Retrieva
 #### Key Parameters:
 
 - `--task`: Specifies the benchmark task (options include: `GameOf24`, `AIME_2025`, `GPQA_Diamond`, `MathEquationBalancer`, *inter alia*).
-- `--approach`: Selects which DC variant or generation baseline to use (options include: `DynamicCheatsheet_RetrievalSynthesis`, `DynamicCheatsheet_RetrievalSynthesis`, `Dynamic_Retrieval`, `FullHistoryAppending`, `default`).
+- `--approach`: Selects which DC variant or generation baseline to use (options include: `DynamicCheatsheet_Cumulative`, `DynamicCheatsheet_RetrievalSynthesis`, `Dynamic_Retrieval`, `FullHistoryAppending`, `default`).
 - `--model_name`: Defines which LLM to use (supports many provider formats); we recommend using smaller and cheaper models (e.g., `openai/gpt-4o-mini`) for initial testing.
 - `--max_n_samples`: Limits the number of examples to process (useful for testing).
 - `--save_directory`: Where to store benchmark results and generated cheatsheets.
@@ -136,3 +145,4 @@ If you make use of our results, codebase, or results in your research or applica
 ```
 
 For more details about the methodology and experimental results, please refer to our paper. You are also more than welcome to reach out to us if you have any questions about our work.
+
