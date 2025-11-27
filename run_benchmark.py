@@ -30,7 +30,7 @@ class Arguments(Tap):
 
     # Paths to the prompt files
     generator_prompt_path: str = "prompts/simple_generator.txt"
-    cheatshet_prompt_path: str = None
+    cheatsheet_prompt_path: str = None
 
     # Additional model-related arguments
     max_tokens: int = 2048
@@ -80,8 +80,8 @@ def main(args: Arguments):
 
     # Read the prompt files
     args.generator_prompt = read_file(args.generator_prompt_path)
-    if args.cheatshet_prompt_path:
-        args.cheatsheet_prompt = read_file(args.cheatshet_prompt_path)
+    if args.cheatsheet_prompt_path:
+        args.cheatsheet_prompt = read_file(args.cheatsheet_prompt_path)
     else:
         args.cheatsheet_prompt = "(empty)"
 
@@ -118,7 +118,7 @@ def main(args: Arguments):
             previous_run_params = json.load(file)
 
         # Compare the provided arguments with the previous run parameters
-        args_keys = ["generator_prompt_path", "cheatshet_prompt_path", "temperature", "execute_python_code", "task", "model_name", "approach_name", "max_num_rounds"]
+        args_keys = ["generator_prompt_path", "cheatsheet_prompt_path", "temperature", "execute_python_code", "task", "model_name", "approach_name", "max_num_rounds"]
 
         # Compare the provided arguments with the previous run parameters
         for key in args_keys:
